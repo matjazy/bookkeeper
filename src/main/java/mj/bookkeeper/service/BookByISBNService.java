@@ -1,6 +1,6 @@
 package mj.bookkeeper.service;
 
-import mj.bookkeeper.domain.Book;
+import org.springframework.http.ResponseEntity;
 
 /**
  * Interface for getting book by ISBN.
@@ -12,8 +12,8 @@ public interface BookByISBNService {
 	/**
 	 * Method for getting book by ISBN.
 	 * @param isbn
-	 * @return book relevant for provided parameter.
+	 * @return ResponseEntity with 200 status and relevant book in the body in case of success or ResponseEntity with 404 status and relevant information in body.
 	 */
-	Book getBookByISBN(String isbn);
+	ResponseEntity<String> getBookByISBN(String isbn);
 	
 }
