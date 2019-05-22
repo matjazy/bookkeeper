@@ -27,6 +27,9 @@ public class BookByISBNServiceImpl implements BookByISBNService {
 	}
 	
 	private boolean validateInput(String isbn) {
+		if (isbn == null) {
+			return false;
+		}
 		if (isbn.isBlank()) {
 			return false;
 		}
