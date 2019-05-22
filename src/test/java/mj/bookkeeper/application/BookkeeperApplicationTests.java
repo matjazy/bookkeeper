@@ -1,4 +1,4 @@
-package mj.bookkeeper;
+package mj.bookkeeper.application;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
