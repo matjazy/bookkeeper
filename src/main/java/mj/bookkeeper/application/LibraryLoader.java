@@ -9,7 +9,7 @@ import mj.bookkeeper.domain.Book;
  * @author MJazy
  *
  */
-public interface BookLoader {
+public interface LibraryLoader {
 
 	/**
 	 * Method for getting all books from data source.

@@ -19,7 +19,7 @@ import mj.bookkeeper.service.BookByISBNService;
 public class BookByISBNController {
 
 	@Autowired
-	BookByISBNService bookByISBNService;
+	private BookByISBNService bookByISBNService;
 	
 	/**
 	 * Method allowing getting book with ISBN.
@@ -27,7 +27,7 @@ public class BookByISBNController {
 	 * @return response entity with status and body depending on request's success.
 	 */
 	@GetMapping("/api/book/{isbn}")
-	ResponseEntity<Book> getBookByISBN(@PathVariable @NonNull String isbn){
+	public ResponseEntity<Book> getBookByISBN(@PathVariable @NonNull String isbn){
 		return bookByISBNService.getBookByISBN(isbn);
 	}
 }

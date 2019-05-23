@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import mj.bookkeeper.BookkeeperApplication;
-import mj.bookkeeper.application.BookLoaderImpl;
+import mj.bookkeeper.application.LibraryLoaderImpl;
 import mj.bookkeeper.domain.Book;
 
 @RunWith(SpringRunner.class)
@@ -44,7 +44,7 @@ public class BookByISBNServiceImplTests {
 	}
 	
 	private Book prepareExistingBook() {
-		BookLoaderImpl bookLoader = new BookLoaderImpl();
+		LibraryLoaderImpl bookLoader = new LibraryLoaderImpl();
 		List<Book> books = bookLoader.loadAllBooks();
 		return books.get(0);
 	}

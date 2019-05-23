@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import mj.bookkeeper.application.BookLoader;
+import mj.bookkeeper.application.LibraryLoader;
 import mj.bookkeeper.domain.Author;
 import mj.bookkeeper.domain.Book;
 
@@ -27,8 +27,8 @@ public class AuthorsServiceImpl implements AuthorsService {
 	/**
 	 * Basic interface for AuthorsServiceImpl class.
 	 */
-	public AuthorsServiceImpl(BookLoader bookLoader) {
-		this.books = bookLoader.loadAllBooks();
+	public AuthorsServiceImpl(LibraryLoader libraryLoader) {
+		this.books = libraryLoader.loadAllBooks();
 	}
 	
 	/**

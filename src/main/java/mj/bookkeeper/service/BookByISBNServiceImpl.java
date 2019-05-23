@@ -5,14 +5,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import mj.bookkeeper.application.BookLoader;
+import mj.bookkeeper.application.LibraryLoader;
 import mj.bookkeeper.domain.Book;
 
+/**
+ * Implementation of BookByISBNService interface.
+ * @author MJazy
+ *
+ */
 @Service
 public class BookByISBNServiceImpl implements BookByISBNService {
 
 	@Autowired
-	private BookLoader bookLoader;
+	private LibraryLoader libraryLoader;
 	
 	@Override
 	public ResponseEntity<Book> getBookByISBN(String isbn) {
@@ -44,7 +49,7 @@ public class BookByISBNServiceImpl implements BookByISBNService {
 	
 	private Book prepareBookByISBN(String isbn) {
 		Book loadedBook = null;
-		for (Book book: bookLoader.loadAllBooks()) {
+		for (Book book: libraryLoader.loadAllBooks()) {
 			if (book.getIsbn().equals(isbn)) {
 				loadedBook = book;
 			}

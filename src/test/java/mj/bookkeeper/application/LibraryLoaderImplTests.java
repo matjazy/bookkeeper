@@ -19,26 +19,26 @@ import mj.bookkeeper.domain.Book;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BookLoaderImplTests {
+public class LibraryLoaderImplTests {
 
 	@Autowired
-	BookLoaderImpl bookLoaderImpl;
+	LibraryLoaderImpl libraryLoaderImpl;
 	
 	@Test
 	public void testSizeOfListByLoadAllBooks(){
-		assertEquals(bookLoaderImpl.loadAllBooks().size(), 40);
+		assertEquals(libraryLoaderImpl.loadAllBooks().size(), 40);
 	}
 	
 	@Test
 	public void testLoadAllBooksForNullPositions() {
-		for (Book book: bookLoaderImpl.loadAllBooks()) {
+		for (Book book: libraryLoaderImpl.loadAllBooks()) {
 			assertNotEquals(null, book);
 		}
 	}
 	
 	@Test
 	public void testIfAllBooksHaveISBN() {
-		for (Book book: bookLoaderImpl.loadAllBooks()) {
+		for (Book book: libraryLoaderImpl.loadAllBooks()) {
 			assertNotEquals(null, book.getIsbn());
 		}
 	}
@@ -47,7 +47,7 @@ public class BookLoaderImplTests {
 	public void testIfISBN_13IsAssigned() {
 		String relevantISBN13 = "9788120602229";
 		boolean isRelevantISBN13Present = false;
-		for (Book book: bookLoaderImpl.loadAllBooks()) {
+		for (Book book: libraryLoaderImpl.loadAllBooks()) {
 			if (book.getIsbn().equals(relevantISBN13)) {
 				isRelevantISBN13Present = true;
 			}
@@ -75,7 +75,7 @@ public class BookLoaderImplTests {
 				.build();
 
 		Book loadedBook = new Book();		
-		for (Book book: bookLoaderImpl.loadAllBooks()) {
+		for (Book book: libraryLoaderImpl.loadAllBooks()) {
 			if (book.getIsbn().equals("9788120602229")) {
 				loadedBook = book;
 			}
@@ -86,7 +86,7 @@ public class BookLoaderImplTests {
 	@Test
 	public void testIfPartialDateIsCalculatedCorrectly() {
 		Book relevantBook = null;
-		for (Book book: bookLoaderImpl.loadAllBooks()) {
+		for (Book book: libraryLoaderImpl.loadAllBooks()) {
 			if (book.getIsbn().equals("_-dCAAAAcAAJ")) {
 				relevantBook = book;
 			}

@@ -25,7 +25,7 @@ import mj.bookkeeper.domain.Book;
  *
  */
 @Component
-public class BookLoaderImpl implements BookLoader{
+public class LibraryLoaderImpl implements LibraryLoader{
 	
 	private final String BOOKS_FILE_PATH = "src/main/resources/static/books.json";
 	

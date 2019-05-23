@@ -7,11 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import mj.bookkeeper.application.BookLoader;
+import mj.bookkeeper.application.LibraryLoader;
 import mj.bookkeeper.domain.Book;
 
 /**
- * Implementation of BooksByCategoryService.
+ * Implementation of BooksByCategoryService interface.
  * @author MJazy
  *
  */
@@ -23,8 +23,8 @@ public class BooksByCategoryServiceImpl implements BooksByCategoryService {
 	/**
 	 * Basic constructor for BooksByCategoryServiceImpl class.
 	 */
-	public BooksByCategoryServiceImpl(BookLoader bookLoader) {
-		this.books = bookLoader.loadAllBooks();
+	public BooksByCategoryServiceImpl(LibraryLoader libraryLoader) {
+		this.books = libraryLoader.loadAllBooks();
 	}
 	
 	/**

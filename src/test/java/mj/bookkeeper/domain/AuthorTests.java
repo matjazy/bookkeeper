@@ -8,51 +8,43 @@ public class AuthorTests {
 
 	@Test
 	public void testComparisonOfLowerWithHigherRatingAuthor() {
-		Author lowerRatingAuthor = new Author ("lower", 1d);
-		Author higherRatingAuthor = new Author ("higher", 2d);
-		int comparisonResult = lowerRatingAuthor.compareTo(higherRatingAuthor);
+		int comparisonResult = compareTwoAuthorValues(1d, 2d);
 		assertEquals(comparisonResult, -1);
 	}
 	
 	@Test
 	public void testComparisonOfHigherWithLowerRatingAuthor() {
-		Author higherRatingAuthor = new Author ("higher", 2d);
-		Author lowerRatingAuthor = new Author ("lower", 1d);
-		int comparisonResult = higherRatingAuthor.compareTo(lowerRatingAuthor);
+		int comparisonResult = compareTwoAuthorValues(2d, 1d);
 		assertEquals(comparisonResult, 1);
 	}
 	
 	@Test
 	public void testComparisonOfEqualRatingAuthors() {
-		Author equalRatingAuthor = new Author ("equal", 1d);
-		Author equalRatingAuthor1 = new Author ("equal1", 1d);
-		int comparisonResult = equalRatingAuthor.compareTo(equalRatingAuthor1);
+		int comparisonResult = compareTwoAuthorValues(1d, 1d);
 		assertEquals(comparisonResult, 0);
 	}
 	
 	@Test
 	public void testComparisonOfNullAndDoubleRatingScenario() {
-		Author nullRatingAuthor = new Author("null", null);
-		Author doubleRatingAuthor = new Author("double", 1d);
-		int comparisonResult = nullRatingAuthor.compareTo(doubleRatingAuthor);
+		int comparisonResult = compareTwoAuthorValues(null, 1d);
 		assertEquals(comparisonResult, -1);
 	}
 	
 	@Test
 	public void testComparedAuthorHasNullRatingScenario() {
-		Author doubleRatingAuthor = new Author("double", 1d);
-		Author nullRatingAuthor = new Author("null", null);
-		int comparisonResult = doubleRatingAuthor.compareTo(nullRatingAuthor);
+		int comparisonResult = compareTwoAuthorValues(1d, null);
 		assertEquals(comparisonResult, 1);
 	}
 	
 	@Test
 	public void testBothAuthorsHaveNullRatingScenario() {
-		Author nullRatingAuthor = new Author("null", null);
-		Author nullRatingAuthor1 = new Author("null1", null);
-		int comparisonResult = nullRatingAuthor.compareTo(nullRatingAuthor1);
+		int comparisonResult = compareTwoAuthorValues(null, null);
 		assertEquals(comparisonResult, 0);		
 	}
 	
-	
+	private int compareTwoAuthorValues(Double value, Double value1) {
+		Author author = new Author("author", value);
+		Author author1 = new Author("author1", value1);
+		return author.compareTo(author1);
+	}
 }

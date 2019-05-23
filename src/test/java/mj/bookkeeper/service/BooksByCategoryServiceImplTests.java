@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import mj.bookkeeper.BookkeeperApplication;
-import mj.bookkeeper.application.BookLoaderImpl;
+import mj.bookkeeper.application.LibraryLoaderImpl;
 import mj.bookkeeper.domain.Book;
 
 @RunWith(SpringRunner.class)
@@ -25,17 +25,17 @@ public class BooksByCategoryServiceImplTests {
 	BooksByCategoryServiceImpl booksByCategoryServiceImpl;
 	
 	@Autowired
-	BookLoaderImpl bookLoaderImpl;
+	LibraryLoaderImpl libraryLoaderImpl;
 	
 	@Test
-	public void testSuccessfulResponse() {
+	public void testResponse() {
 		List<Book> relevantBooksByCategory = prepareBooksByCategoryList("Computers");
 		ResponseEntity<List<Book>> relevantResponse = ResponseEntity.status(HttpStatus.OK).body(relevantBooksByCategory);
 		assertEquals(relevantResponse, booksByCategoryServiceImpl.getBooksByCategory("Computers"));
 	}
 	
 	private List<Book>prepareBooksByCategoryList(String category) {
-		List<Book> books = bookLoaderImpl.loadAllBooks();
+		List<Book> books = libraryLoaderImpl.loadAllBooks();
 		List<Book> booksByCategory = new LinkedList<Book>(); 
 		for (Book book: books) {
 			String[] categories = book.getCategories();

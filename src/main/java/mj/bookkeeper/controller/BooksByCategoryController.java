@@ -21,7 +21,7 @@ import mj.bookkeeper.service.BooksByCategoryService;
 public class BooksByCategoryController {
 
 	@Autowired
-	BooksByCategoryService booksByCategoryService;
+	private BooksByCategoryService booksByCategoryService;
 	
 	/**
 	 * Case sensitive method for getting books by category.
