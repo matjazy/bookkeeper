@@ -15,15 +15,15 @@ public class BookByISBNServiceImpl implements BookByISBNService {
 	private BookLoader bookLoader;
 	
 	@Override
-	public ResponseEntity<String> getBookByISBN(String isbn) {
+	public ResponseEntity<Book> getBookByISBN(String isbn) {
 		if (!validateInput(isbn)) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No results found");
+			return ResponseEntity.notFound().build();
 		}
 		Book book = prepareBookByISBN(isbn);
 		if (book == null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No results founds");
+			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.status(HttpStatus.OK).body(book.toString());
+		return ResponseEntity.status(HttpStatus.OK).body(book);
 	}
 	
 	private boolean validateInput(String isbn) {

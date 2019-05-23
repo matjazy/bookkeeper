@@ -33,7 +33,7 @@ public class BookByISBNControllerTests {
 	@Test
 	public void testValidationSuccessfulScenario() {
 		try {
-			mockMvc.perform(get("/api/book/9780201725933")).andExpect(status().isOk()).andExpect(content().string(containsString("Java")));
+			mockMvc.perform(get("/api/book/9780201725933")).andExpect(status().isOk()).andExpect(content().string(containsString("On to Java 2")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

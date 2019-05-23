@@ -25,20 +25,20 @@ public class BookByISBNServiceImplTests {
 	
 	@Test
 	public void testValidation() {
-		ResponseEntity<String> responseEntity = ResponseEntity.status(HttpStatus.NOT_FOUND).body("No results found");
+		ResponseEntity<Book> responseEntity = ResponseEntity.notFound().build();
 		assertEquals(responseEntity, bookByISBNService.getBookByISBN(" "));
 	}
 	
 	@Test	
 	public void testBookNotFoundScenario() {
-		ResponseEntity<String> responseEntity = ResponseEntity.status(HttpStatus.NOT_FOUND).body("No results founds");
+		ResponseEntity<Book> responseEntity = ResponseEntity.notFound().build();
 		assertEquals(responseEntity, bookByISBNService.getBookByISBN("1111111111111"));
 	}
 	
 	@Test
 	public void testBookFoundScenario() {
 		Book relevantBook = prepareExistingBook();
-		ResponseEntity<String> responseEntity = ResponseEntity.status(HttpStatus.OK).body(relevantBook.toString());
+		ResponseEntity<Book> responseEntity = ResponseEntity.status(HttpStatus.OK).body(relevantBook);
 		assertEquals(responseEntity, bookByISBNService.getBookByISBN(relevantBook.getIsbn()));
 		
 	}
