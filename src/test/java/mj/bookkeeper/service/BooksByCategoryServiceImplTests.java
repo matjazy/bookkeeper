@@ -30,7 +30,6 @@ public class BooksByCategoryServiceImplTests {
 	@Test
 	public void testResponse() {
 		List<Book> relevantBooksByCategory = prepareBooksByCategoryList("Computers");
-		System.out.println(relevantBooksByCategory);
 		ResponseEntity<String> relevantResponse = ResponseEntity.status(HttpStatus.OK).body(relevantBooksByCategory.toString());
 		assertEquals(relevantResponse, booksByCategoryServiceImpl.getBooksByCategory("Computers"));
 	}
