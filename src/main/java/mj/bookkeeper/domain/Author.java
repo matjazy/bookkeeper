@@ -23,9 +23,19 @@ public class Author implements Comparable<Author> {
 	@Override
 	/**
 	 * Comparison method for Author class.
-	 * @return -1 if comparing author's rating is lower than supplied author's rating, 1 if higher, 0 if equals.
+	 * @return -1 if comparing author's rating is lower than supplied author's rating, 1 if higher, 0 if equals. 
+	 * No rating is treated as lowest.
 	 */
 	public int compareTo(Author author) {
+		if ((averageRating == null) && (author.getAverageRating() != null)) {
+			return -1;
+		}
+		if ((averageRating != null) && (author.getAverageRating() == null)){
+			return 1;
+		}
+		if ((averageRating == null) && (author.getAverageRating() == null)) {
+			return 0;
+		}
 		if (averageRating < author.averageRating) {
 			return -1;
 		}

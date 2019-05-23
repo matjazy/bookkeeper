@@ -30,5 +30,29 @@ public class AuthorTests {
 		assertEquals(comparisonResult, 0);
 	}
 	
+	@Test
+	public void testComparisonOfNullAndDoubleRatingScenario() {
+		Author nullRatingAuthor = new Author("null", null);
+		Author doubleRatingAuthor = new Author("double", 1d);
+		int comparisonResult = nullRatingAuthor.compareTo(doubleRatingAuthor);
+		assertEquals(comparisonResult, -1);
+	}
+	
+	@Test
+	public void testComparedAuthorHasNullRatingScenario() {
+		Author doubleRatingAuthor = new Author("double", 1d);
+		Author nullRatingAuthor = new Author("null", null);
+		int comparisonResult = doubleRatingAuthor.compareTo(nullRatingAuthor);
+		assertEquals(comparisonResult, 1);
+	}
+	
+	@Test
+	public void testBothAuthorsHaveNullRatingScenario() {
+		Author nullRatingAuthor = new Author("null", null);
+		Author nullRatingAuthor1 = new Author("null1", null);
+		int comparisonResult = nullRatingAuthor.compareTo(nullRatingAuthor1);
+		assertEquals(comparisonResult, 0);		
+	}
+	
 	
 }

@@ -1,8 +1,6 @@
 package mj.bookkeeper.service;
 
-import java.util.List;
-
-import mj.bookkeeper.domain.Author;
+import org.springframework.http.ResponseEntity;
 
 /**
  * Interface for getting all authors.
@@ -13,8 +11,8 @@ public interface AuthorsService {
 
 	/**
 	 * Method for getting all authors.
-	 * @return
+	 * @return response entity with status 200 and all authors.
 	 */
-	List<Author> getAllAuthors();
+	ResponseEntity<String> getAllAuthors();
 	
 }
