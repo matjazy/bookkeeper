@@ -2,7 +2,8 @@ package mj.bookkeeper.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ import mj.bookkeeper.service.BooksByCategoryService;
 @RestController
 public class BooksByCategoryController {
 
-	@Autowired
+	@Inject
 	private BooksByCategoryService booksByCategoryService;
 	
 	/**

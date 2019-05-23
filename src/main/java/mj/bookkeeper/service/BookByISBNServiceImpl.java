@@ -1,6 +1,7 @@
 package mj.bookkeeper.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import mj.bookkeeper.domain.Book;
 @Service
 public class BookByISBNServiceImpl implements BookByISBNService {
 
-	@Autowired
+	@Inject
 	private LibraryLoader libraryLoader;
 	
 	@Override

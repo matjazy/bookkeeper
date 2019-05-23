@@ -4,9 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ import mj.bookkeeper.domain.Book;
 @SpringBootTest(classes = BookkeeperApplication.class)
 public class BookByISBNServiceImplTests {
 
-	@Autowired
+	@Inject
 	BookByISBNServiceImpl bookByISBNService;
 	
 	@Test

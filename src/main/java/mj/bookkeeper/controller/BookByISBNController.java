@@ -1,6 +1,7 @@
 package mj.bookkeeper.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ import mj.bookkeeper.service.BookByISBNService;
 @RestController
 public class BookByISBNController {
 
-	@Autowired
+	@Inject
 	private BookByISBNService bookByISBNService;
 	
 	/**

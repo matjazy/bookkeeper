@@ -9,9 +9,10 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -21,7 +22,7 @@ import mj.bookkeeper.domain.Book;
 @SpringBootTest
 public class LibraryLoaderImplTests {
 
-	@Autowired
+	@Inject
 	LibraryLoaderImpl libraryLoaderImpl;
 	
 	@Test
