@@ -23,7 +23,6 @@ public class BooksByCategoryControllerTests {
 	public void testValidationSuccessfulScenario() {
 		try {
 			mockMvc.perform(get("/api/category/Computers/books")).andExpect(status().isOk());
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

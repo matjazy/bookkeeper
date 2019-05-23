@@ -1,6 +1,10 @@
 package mj.bookkeeper.service;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
+
+import mj.bookkeeper.domain.Book;
 
 /**
  * Interface for getting books by category.
@@ -14,6 +18,6 @@ public interface BooksByCategoryService {
 	 * @param category relevant for books to be returned.
 	 * @return response entity with status 200 and list of books having supplied category.
 	 */
-	ResponseEntity<String> getBooksByCategory(String category);
+	ResponseEntity<List<Book>> getBooksByCategory(String category);
 	
 }

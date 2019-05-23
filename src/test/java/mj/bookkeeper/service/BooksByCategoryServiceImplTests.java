@@ -28,9 +28,9 @@ public class BooksByCategoryServiceImplTests {
 	BookLoaderImpl bookLoaderImpl;
 	
 	@Test
-	public void testResponse() {
+	public void testSuccessfulResponse() {
 		List<Book> relevantBooksByCategory = prepareBooksByCategoryList("Computers");
-		ResponseEntity<String> relevantResponse = ResponseEntity.status(HttpStatus.OK).body(relevantBooksByCategory.toString());
+		ResponseEntity<List<Book>> relevantResponse = ResponseEntity.status(HttpStatus.OK).body(relevantBooksByCategory);
 		assertEquals(relevantResponse, booksByCategoryServiceImpl.getBooksByCategory("Computers"));
 	}
 	

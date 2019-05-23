@@ -33,8 +33,8 @@ public class BooksByCategoryServiceImpl implements BooksByCategoryService {
 	 * @return response entity with status 200 and list of books having supplied category.
 	 */
 	@Override
-	public ResponseEntity<String> getBooksByCategory(String category) {
-		return ResponseEntity.status(HttpStatus.OK).body(getBooksByCategoryList(category).toString());
+	public ResponseEntity<List<Book>> getBooksByCategory(String category) {
+		return ResponseEntity.status(HttpStatus.OK).body(getBooksByCategoryList(category));
 	}
 
 	private List<Book> getBooksByCategoryList(String category){
