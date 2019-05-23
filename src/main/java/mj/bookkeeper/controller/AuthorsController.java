@@ -1,10 +1,13 @@
 package mj.bookkeeper.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import mj.bookkeeper.domain.Author;
 import mj.bookkeeper.service.AuthorsServiceImpl;
 
 @RestController
@@ -24,7 +27,7 @@ public class AuthorsController {
 	 * Authors with no averageRating are treated as if they have lowest averageRating.
 	 */
 	@GetMapping("/api/rating")
-	public ResponseEntity<String> getAllAuthors(){
+	public ResponseEntity<List<Author>> getAllAuthors(){
 		return authorsServiceImpl.getAllAuthors();
 	}
 	

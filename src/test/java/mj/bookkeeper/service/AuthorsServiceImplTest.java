@@ -1,15 +1,17 @@
 package mj.bookkeeper.service;
 
 import static org.junit.Assert.assertEquals;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import mj.bookkeeper.domain.Author;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -20,29 +22,21 @@ public class AuthorsServiceImplTest {
 		
 	@Test
 	public void testResponseEntityStatus() {
-		ResponseEntity<String> responseEntity = authorsServiceImpl.getAllAuthors();
+		ResponseEntity<List<Author>> responseEntity = authorsServiceImpl.getAllAuthors();
 		assertEquals(responseEntity.getStatusCodeValue(), 200);
 	}
 
 	@Test
 	public void testNoRatingForAuthorScenario() {
-		try {
-			JSONArray responseBody = new JSONArray(authorsServiceImpl.getAllAuthors().getBody());
-			JSONObject lastObject = responseBody.getJSONObject(responseBody.length()-1);
-			assertEquals(lastObject.get("averageRating"), null);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+			List<Author> responseBody = authorsServiceImpl.getAllAuthors().getBody();
+			Author lastAuthor = responseBody.get(responseBody.size()-1);
+			assertEquals(lastAuthor.getAverageRating(), null);
 	}
 	
 	@Test
 	public void testRatingCalculation() {
-		try {
-			JSONArray responseBody = new JSONArray(authorsServiceImpl.getAllAuthors().getBody());
-			JSONObject firstObject = responseBody.getJSONObject(0);
-			assertEquals(firstObject.get("averageRating"), 5.0d);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}		
+		List<Author> responseBody = authorsServiceImpl.getAllAuthors().getBody();
+		Author firstAuthor = responseBody.get(0);
+		assertEquals(firstAuthor.getAverageRating(), Double.valueOf(5.0));
 	}	
 }

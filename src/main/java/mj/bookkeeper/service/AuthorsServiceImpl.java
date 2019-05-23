@@ -38,8 +38,8 @@ public class AuthorsServiceImpl implements AuthorsService {
 	 * @return response entity with status 200 and list of all authors sorted by their average rating.
 	 */
 	@Override
-	public ResponseEntity<String> getAllAuthors() {
-		return ResponseEntity.status(HttpStatus.OK).body(prepareAllAuthorsList().toString());
+	public ResponseEntity<List<Author>> getAllAuthors() {
+		return ResponseEntity.status(HttpStatus.OK).body(prepareAllAuthorsList());
 	}
 	
 	private List<Author> prepareAllAuthorsList() {
